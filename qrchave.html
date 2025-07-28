@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Copiando...</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    .mensagem {
+      font-size: 20px;
+      color: #333;
+    }
+
+    img {
+      width: 200px;
+      margin-bottom: 20px;
+    }
+  </style>
+  <script>
+    window.onload = () => {
+      const texto = "45999791863";
+      navigator.clipboard.writeText(texto).then(() => {
+        document.body.innerHTML = `
+          <img src="qrcode-pix.png" alt="QR Code Pix">
+          <h2 class="mensagem">Chave Pix copiada: ${texto}</h2>
+        `;
+      }).catch(() => {
+        document.body.innerHTML = "<h2 class='mensagem'>Erro ao copiar</h2>";
+      });
+    };
+  </script>
+</head>
+<body>
+  <img src="qrcode-pix.png" alt="QR Code Pix">
+  <p class="mensagem">Copiar chave Pix...</p>
+</body>
+</html>
